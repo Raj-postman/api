@@ -1,0 +1,33 @@
+{
+    "info": {
+        "_postman_id": "96cd9f4c-88fc-4e7b-ab3f-ebead680a2c9",
+        "name": "ExampleNewCollection",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "PostNew",
+            "id": "dbd00d0c-87d1-4dc5-8386-13420e9f89fa",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "https://www.postman-echo.com/post",
+                    "protocol": "https",
+                    "host": [
+                        "www",
+                        "postman-echo",
+                        "com"
+                    ],
+                    "path": [
+                        "post"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "info": {
+        "_postman_id": "23c04585-c1d8-465a-89f1-5469941f92bf",
+        "name": "MonitoringAnData",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "GetPost_Duplicate",
+            "id": "4e731c03-dc35-4e4f-b2da-d039bf978f59",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://www.postman-echo.com/get",
+                    "protocol": "https",
+                    "host": [
+                        "www",
+                        "postman-echo",
+                        "com"
+                    ],
+                    "path": [
+                        "get"
+                    ]
+                },
+                "description": "Adding an documentation details for reading."
+            },
+            "response": []
+        }
+    ]
+}
