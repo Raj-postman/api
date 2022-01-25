@@ -1,0 +1,351 @@
+{
+    "info": {
+        "_postman_id": "f43aee09-1d50-411d-a54f-c938f76aee42",
+        "name": "Dots Public API",
+        "description": "# Introduction\nThe Dots API can be used to query aggregated activity data on members over a given time period. We will share an `api_key` that is mapped to your Slack team for you to use to authenticate API requests.\n\n# Overview\nThe methods currently supported by the Dots API are:\n- 'Subscribe URL': This will support subscribing a webhook url (or unsubscribing)\n- `Member Activity`: Given a `start_date` and an `end_date`, this will return a list of objects with the following values:\n    - `name`: member's name\n    - `slack_id`: member's Slack ID\n    - `parent_messages`: number of channel-level messages (i.e. not thread responses) that the member sent over the time range in public channels\n    - `thread_replies`: number of thread responses that the member sent over the time range in public channels\n    - `reaction_count`: number of message reactions that the member sent over the time range in public channels\n\n# Authentication\nWe will issue an API key that is specific to your team in Dots and can be used in the `Authorization` header to authenticate requests against the API.\n\n# Error Codes\n- `Invalid API Key`: thrown when the provided API key is incorrect\n\n# Rate limit\nInitially, no rate limits will be strictly enforced. There will be a data limit enforced of 10,000 results returned from the `Member Activity` method.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Member Activity",
+            "id": "448b198e-a90e-45d5-9744-a9280b0dabe2",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "auth": {
+                    "type": "apikey"
+                },
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "{{api_key_ex}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"start_date\": \"2021-07-01\", \n    \"end_date\": \"2021-07-31\"    \n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "https://api.dots.community/api/member_activity?start_date=2021-07-01&end_date=2021-07-31",
+                    "protocol": "https",
+                    "host": [
+                        "api",
+                        "dots",
+                        "community"
+                    ],
+                    "path": [
+                        "api",
+                        "member_activity"
+                    ],
+                    "query": [
+                        {
+                            "key": "start_date",
+                            "value": "2021-07-01"
+                        },
+                        {
+                            "key": "end_date",
+                            "value": "2021-07-31"
+                        }
+                    ]
+                },
+                "description": "Will return a JSON response with the following structure:\n\n```\n[\n  {\n    \"name\": \"Matt Jirby\",\n    \"slack_id\": \"U01234567\",\n    \"parent_messages\": 23,\n    \"thread_replies\": 37,\n    \"reaction_count\": 50\n  }, ...\n]\n\n```"
+            },
+            "response": []
+        },
+        {
+            "name": "Member Activity",
+            "id": "5f49ae75-68a3-4665-b2e3-dce1497c4fd8",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "auth": {
+                    "type": "apikey"
+                },
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "{{api_key_ex}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"start_date\": \"2021-07-01\", \n    \"end_date\": \"2021-07-31\"    \n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "https://api.dots.community/api/member_activity",
+                    "protocol": "https",
+                    "host": [
+                        "api",
+                        "dots",
+                        "community"
+                    ],
+                    "path": [
+                        "api",
+                        "member_activity"
+                    ]
+                },
+                "description": "You can also send a POST request. This is older, and we prefer you use GET request to retrieve a list of activity as above. "
+            },
+            "response": []
+        },
+        {
+            "name": "subscribe url",
+            "id": "0a2aceff-e15c-43e4-825a-6ecf2f0d0dc2",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "{{api_key_ex}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"hookUrl\": \"https://app.dots.community\",\n    \"action\": \"subscribe\",\n    \"filterTypes\": \n        \"slack_users.tag_added\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "https://api.dots.community/api/subscribe_url",
+                    "protocol": "https",
+                    "host": [
+                        "api",
+                        "dots",
+                        "community"
+                    ],
+                    "path": [
+                        "api",
+                        "subscribe_url"
+                    ],
+                    "query": [
+                        {
+                            "key": "",
+                            "value": "",
+                            "type": "text",
+                            "disabled": true
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Update tag",
+            "id": "14b20756-4f75-4eba-94b8-110a5b107f6f",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "{{api_key_ex}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"email\": \"pranavbadami@gmail.com\",\n    \"tags\": \n        [\"moderator\", \"engineer\"]\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "https://api.dots.community/api/update_tag",
+                    "protocol": "https",
+                    "host": [
+                        "api",
+                        "dots",
+                        "community"
+                    ],
+                    "path": [
+                        "api",
+                        "update_tag"
+                    ],
+                    "query": [
+                        {
+                            "key": "",
+                            "value": "",
+                            "type": "text",
+                            "disabled": true
+                        }
+                    ]
+                },
+                "description": "For a given email address, you can update tags. The API will auto create a tag for a given team in case the tag doesn't exist. \n\nIf email doesn't match, then it will fail. "
+            },
+            "response": [
+                {
+                    "id": "b2e3fa2b-d694-49b5-bc04-c1c5fd007739",
+                    "name": "Update tag",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "{{api_key_ex}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"pranavbadami@gmail.com\",\n    \"tags\": \n        [\"moderator\", \"engineer\"]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "https://api.dots.community/api/update_tag",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "dots",
+                                "community"
+                            ],
+                            "path": [
+                                "api",
+                                "update_tag"
+                            ],
+                            "query": [
+                                {
+                                    "key": "",
+                                    "value": "",
+                                    "type": "text",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "Date",
+                            "value": "Wed, 29 Dec 2021 05:09:44 GMT"
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "Content-Length",
+                            "value": "27"
+                        },
+                        {
+                            "key": "Connection",
+                            "value": "keep-alive"
+                        },
+                        {
+                            "key": "x-amzn-requestid",
+                            "value": "7f1558ee-1cd0-480b-88ef-df6b50723333"
+                        },
+                        {
+                            "key": "access-control-allow-origin",
+                            "value": "*"
+                        },
+                        {
+                            "key": "x-amz-apigw-id",
+                            "value": "LGIPsFb2IAMFgtw="
+                        },
+                        {
+                            "key": "x-amzn-trace-id",
+                            "value": "Root=1-61cbed97-739a18530926d2cc4567e804;Sampled=0"
+                        },
+                        {
+                            "key": "access-control-allow-credentials",
+                            "value": "true"
+                        },
+                        {
+                            "key": "CF-Cache-Status",
+                            "value": "DYNAMIC"
+                        },
+                        {
+                            "key": "Expect-CT",
+                            "value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+                        },
+                        {
+                            "key": "Report-To",
+                            "value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=6WlbDIn6tfPzaOfmolGO6Efsw5F8G2PZL6Ah61vYEnF2Lam9a7Cpxulc0TqYBeC%2BdHX1IpXOpVmJWcBuvrueBeTntxxiGiYTLg8wLnCvXm4FkuSLOa1VZ8NSjOvY1tPS8oWtflw%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+                        },
+                        {
+                            "key": "NEL",
+                            "value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+                        },
+                        {
+                            "key": "Server",
+                            "value": "cloudflare"
+                        },
+                        {
+                            "key": "CF-RAY",
+                            "value": "6c508492adcf3320-EWR"
+                        },
+                        {
+                            "key": "alt-svc",
+                            "value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-27=\":443\"; ma=86400"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "{\n    \"data\": \"Tag updated\"\n}"
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "id": "fdfa3983-0a2c-4092-a127-b1b822bc7b40",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "id": "791759f1-39a1-42c3-af70-116b1fff19b1",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "id": "5471bd9d-5179-48a5-bcff-7c9f42bb487b",
+            "key": "api_key_ex",
+            "value": "8db207ce-2fb3-4a04-b759-8bd1a44caf1f"
+        }
+    ]
+}
