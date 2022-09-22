@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
-  version: 1.1.1
-  title: OnePlus
+  version: 1.1.2
+  title: OnePlus Sapiens
 servers:
   - url: 'https://petstore.swagger.io/v1'
 paths:
