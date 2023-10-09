@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "user signup API",
+			"name": "Renaming Back to sign-in",
 			"id": "9b961141-1481-448f-87f6-401f35d708df",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
