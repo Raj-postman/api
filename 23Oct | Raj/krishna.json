@@ -472,6 +472,18 @@
 		},
 		{
 			"name": "updating Profile Picture API",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b39652b3-901c-43f7-ad78-d56daf819c79",
+						"exec": [
+							"pm.environment.get(\"variable_key\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"id": "9fb4ac4d-a151-45a0-b2cf-fe2c69eabce4",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
