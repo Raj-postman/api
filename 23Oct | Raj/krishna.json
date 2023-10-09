@@ -1,0 +1,1146 @@
+{
+	"info": {
+		"_postman_id": "e25b0f8d-6b32-4f5a-9a92-97ae24215f49",
+		"name": "User API Documentation",
+		"description": "```\n### Response Body Parameters:Selected paramaters from the available one should be displayed. For Example:>**'breakdownColumns`** - Selected breakdown values>>**`totals`** - total values for selected columns, for example:>>> **`clicks`** - Q-ty unique clicks>>>>**`duplicate_clicks`** - Q-ty duplicate clicks>>>>**`invalid_clicks`** - Q-ty invalid clicks>>>>**`approved_clicks`** - Q-ty approved clicks>>>>**`cv_total`** - Q-ty total conversions>>**`rows`** - separate values\n\n ```",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user signup API",
+			"id": "9b961141-1481-448f-87f6-401f35d708df",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{auth-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"user3@example.com\",\r\n  \"password\": \"secretpassword1\",\r\n  \"username\": \"exampleuser3\",\r\n  \"profilePicture\": \"<https://example.com/profile1.jpg>\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/users/",
+				"description": "This endpoint allows new users to sign up for the platform by providing their user details. When a `POST` request is made to this endpoint, the `signup` function is invoked to save the user’s information to the database. If the user account is created successfully, the API responds with the saved user details."
+			},
+			"response": [
+				{
+					"id": "8c93c6de-57d6-43ff-8435-e1c2580204ce",
+					"name": "success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"user3@example.com\",\r\n  \"password\": \"secretpassword1\",\r\n  \"username\": \"exampleuser3\",\r\n  \"profilePicture\": \"<https://example.com/profile1.jpg>\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/users/"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "96"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 27 Sep 2023 18:47:53 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"60-h3MKKICnMc/QKWCVVCgyQruX7Dw\""
+						},
+						{
+							"key": "Expect-Ct",
+							"value": "max-age=2592000, report-uri=\"https://sentry.repl.it/api/10/security/?sentry_key=615192fd532445bfbbbe966cd7131791\""
+						},
+						{
+							"key": "Replit-Cluster",
+							"value": "global"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=5649098; includeSubDomains"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"message\": \"user created\",\n    \"user\": {\n        \"_id\": \"651478d9e4d21e615f83556c\",\n        \"email\": \"user3@example.com\"\n    }\n}"
+				},
+				{
+					"id": "d9297e51-6533-433a-b49c-576f14f1ad6d",
+					"name": "error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"user@example.com\",\r\n  \"password\": \"secretpassword\",\r\n  \"username\": \"exampleuser\",\r\n  \"profilePicture\": \"<https://example.com/profile.jpg>\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/users/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "32"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Sep 2023 18:15:00 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"20-xLwyNZgKocxa5jN8bl7pIyNBozw\""
+						},
+						{
+							"key": "Expect-Ct",
+							"value": "max-age=2592000, report-uri=\"https://sentry.repl.it/api/10/security/?sentry_key=615192fd532445bfbbbe966cd7131791\""
+						},
+						{
+							"key": "Replit-Cluster",
+							"value": "global"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=6169471; includeSubDomains"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"message\": \"user already exist\"\n}"
+				}
+			]
+		},
+		{
+			"name": "user login API",
+			"id": "d5b6e13c-cd02-4119-b434-7d475753121a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"user1@example.com\",\r\n  \"password\": \"newpassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/users/login",
+				"description": "This API endpoint allows users to log into their accounts by providing their email and password. When a `POST` request is made to this endpoint, the `login` function is invoked to authenticate the user. If the user is authenticated successfully, the API responds with the user’s details. If the credentials are invalid or an error occurs during the process, the API responds with an appropriate error message."
+			},
+			"response": [
+				{
+					"id": "2e1fc062-3ce0-4165-8787-1ff1d09ae2da",
+					"name": "success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"user1@example.com\",\r\n  \"password\": \"newpassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/users/login"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "100"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 27 Sep 2023 18:45:07 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"64-RfCcieUU0bryfwHEh22rzcbv1Yo\""
+						},
+						{
+							"key": "Expect-Ct",
+							"value": "max-age=2592000, report-uri=\"https://sentry.repl.it/api/10/security/?sentry_key=615192fd532445bfbbbe966cd7131791\""
+						},
+						{
+							"key": "Replit-Cluster",
+							"value": "global"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=5649263; includeSubDomains"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"message\": \"login successful\",\n    \"user\": {\n        \"_id\": \"650c883a5cc72285f945f3d5\",\n        \"email\": \"user1@example.com\"\n    }\n}"
+				},
+				{
+					"id": "f04d3dd6-4e4b-4fa7-ad45-321c3ed10822",
+					"name": "error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"user1@example.com\",\r\n  \"password\": \"secretpasswor\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/users/login"
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "34"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Sep 2023 18:17:11 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"22-NRX1ki0twN9+Tg53i9HlthYoWws\""
+						},
+						{
+							"key": "Expect-Ct",
+							"value": "max-age=2592000, report-uri=\"https://sentry.repl.it/api/10/security/?sentry_key=615192fd532445bfbbbe966cd7131791\""
+						},
+						{
+							"key": "Replit-Cluster",
+							"value": "global"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=6169340; includeSubDomains"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"message\": \"authorization failed\"\n}"
+				}
+			]
+		},
+		{
+			"name": "changing password API",
+			"id": "480de8ba-b583-46a2-9a66-ef6ae5ce83fa",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"user1@example.com\",\r\n  \"password\": \"newpassword\",\r\n  \"newPassword\": \"secretpassword1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/users/650c883a5cc72285f945f3d5/password",
+				"description": "This endpoint allows users to change their password by providing their user ID as a route parameter and the current and new passwords in the request body. When a `POST` request is made to this endpoint, the `changePassword` function is invoked to update the user’s password in the database, provided that the current password is correct."
+			},
+			"response": [
+				{
+					"id": "a712b216-67b6-4728-912b-db6c5aaf04c8",
+					"name": "success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"user1@example.com\",\r\n  \"password\": \"newpassword\",\r\n  \"newPassword\": \"secretpassword1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/users/650c883a5cc72285f945f3d5/password"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "111"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 27 Sep 2023 18:52:54 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"6f-2i1dsXnfA9ZSex+Xi9waJRo56kQ\""
+						},
+						{
+							"key": "Expect-Ct",
+							"value": "max-age=2592000, report-uri=\"https://sentry.repl.it/api/10/security/?sentry_key=615192fd532445bfbbbe966cd7131791\""
+						},
+						{
+							"key": "Replit-Cluster",
+							"value": "global"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=5648799; includeSubDomains"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"message\": \"password changed successful\",\n    \"user\": {\n        \"_id\": \"650c883a5cc72285f945f3d5\",\n        \"email\": \"user1@example.com\"\n    }\n}"
+				},
+				{
+					"id": "67d5ac7c-fd82-4e22-b04b-e5c884915aec",
+					"name": "error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"user1@example.com\",\r\n  \"password\": \"secretpassword1\",\r\n  \"newPassword\": \"newpassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/users/650c883a5cc72285f945f3d5/password"
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "36"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 22 Sep 2023 08:32:54 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"24-twpV+eGDUMKUjddeuquQ5dk116A\""
+						},
+						{
+							"key": "Expect-Ct",
+							"value": "max-age=2592000, report-uri=\"https://sentry.repl.it/api/10/security/?sentry_key=615192fd532445bfbbbe966cd7131791\""
+						},
+						{
+							"key": "Replit-Cluster",
+							"value": "global"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=6117997; includeSubDomains"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"message\": \"password didnt matched\"\n}"
+				}
+			]
+		},
+		{
+			"name": "updating Profile Picture API",
+			"id": "9fb4ac4d-a151-45a0-b2cf-fe2c69eabce4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"user1@example.com\",\r\n  \"newProfilePictureUrl\": \"<https://example.com/new-profile.jpg>\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/users/650c883a5cc72285f945f3d5/profile",
+				"description": "This API allows users to update their profile picture by providing their user ID as a route parameter and the new profile picture URL in the request body. When a `POST` request is made to this endpoint, the `updateProfilePicture` function is invoked to update the user’s profile picture URL in the database."
+			},
+			"response": [
+				{
+					"id": "020781b1-9f85-4a20-a0f3-edadd3395d00",
+					"name": "success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"user1@example.com\",\r\n  \"newProfilePictureUrl\": \"<https://example1.com/new-profile.jpg>\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/users/650c883a5cc72285f945f3d5/profile"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "172"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 27 Sep 2023 18:55:16 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"ac-0+fbvE35Mm6x/37AlU3H4cnoVQw\""
+						},
+						{
+							"key": "Expect-Ct",
+							"value": "max-age=2592000, report-uri=\"https://sentry.repl.it/api/10/security/?sentry_key=615192fd532445bfbbbe966cd7131791\""
+						},
+						{
+							"key": "Replit-Cluster",
+							"value": "global"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=5648654; includeSubDomains"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"message\": \"profile picture changed successful\",\n    \"user\": {\n        \"_id\": \"650c883a5cc72285f945f3d5\",\n        \"email\": \"user1@example.com\",\n        \"profilePicture\": \"<https://example.com/profile1.jpg>\"\n    }\n}"
+				},
+				{
+					"id": "e828f870-7497-4c38-a22f-7964175a2d56",
+					"name": "error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"user1@example.com\",\r\n  \"newProfilePictureUrl\": \"<https://example.com/new-profile.jpg>\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/users/650c883a5cc72285f945f3d1/profile"
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "28"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Sep 2023 18:28:57 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"1c-AvgRziILRQT4TS+D2lz8Y9KAAHo\""
+						},
+						{
+							"key": "Expect-Ct",
+							"value": "max-age=2592000, report-uri=\"https://sentry.repl.it/api/10/security/?sentry_key=615192fd532445bfbbbe966cd7131791\""
+						},
+						{
+							"key": "Replit-Cluster",
+							"value": "global"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=6168634; includeSubDomains"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"message\": \"user not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "updating Contact Details API",
+			"id": "5a24a6b2-6208-45de-a3d2-04f4cc0d64b4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"phoneNumber\": \"1234567891\",\r\n  \"address\": \"123 Main St, City1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/users/updateContact/user2@example.com",
+				"description": "This endpoint allows users to update their contact details by providing their email as a route parameter and the new contact details in the request body. When a `POST` request is made to this endpoint, the `updateContactDetails` function is invoked to update the user’s contact details in the database."
+			},
+			"response": [
+				{
+					"id": "e479bf20-9b79-473a-89b5-e916e25e001f",
+					"name": "success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"phoneNumber\": \"1234567891\",\r\n  \"address\": \"123 Main St, City1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/users/updateContact/user2@example.com"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "254"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 27 Sep 2023 18:58:04 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"fe-mvDNwV+fOVgKJFetvH+uooXkqcA\""
+						},
+						{
+							"key": "Expect-Ct",
+							"value": "max-age=2592000, report-uri=\"https://sentry.repl.it/api/10/security/?sentry_key=615192fd532445bfbbbe966cd7131791\""
+						},
+						{
+							"key": "Replit-Cluster",
+							"value": "global"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=5648486; includeSubDomains"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"message\": \"Contact details added successful\",\n    \"user\": {\n        \"_id\": \"651478b17c31a89c85536a0f\",\n        \"email\": \"user2@example.com\",\n        \"profilePicture\": \"<https://example.com/profile1.jpg>\",\n        \"username\": \"exampleuser2\",\n        \"address\": \"123 Main St, City1\",\n        \"phoneNumber\": \"1234567891\"\n    }\n}"
+				},
+				{
+					"id": "a6f20bac-9685-45b7-9635-4a294b3c7746",
+					"name": "error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"phoneNumber\": \"1234567890\",\r\n  \"address\": \"123 Main St, City\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/users/updateContact/user1@example.co"
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "28"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 21 Sep 2023 18:30:31 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"1c-AvgRziILRQT4TS+D2lz8Y9KAAHo\""
+						},
+						{
+							"key": "Expect-Ct",
+							"value": "max-age=2592000, report-uri=\"https://sentry.repl.it/api/10/security/?sentry_key=615192fd532445bfbbbe966cd7131791\""
+						},
+						{
+							"key": "Replit-Cluster",
+							"value": "global"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=6168539; includeSubDomains"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"message\": \"user not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "finding User by Phone Number API",
+			"id": "0e8b8e7b-95f3-493e-973a-b57d8ef010a7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/users/phone/1234567891",
+				"description": "This endpoint allows users to search for a user by their phone number. When a `GET` request is made to this endpoint, the `findUserByPhoneNumber` function is invoked to retrieve the user data from the database."
+			},
+			"response": [
+				{
+					"id": "4ab15d5f-1144-4082-9514-b291eaae1165",
+					"name": "success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/users/phone/1234567891"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "261"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 27 Sep 2023 18:59:47 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"105-TQNfdHgi6LBUsLv/JyuTmht+cMU\""
+						},
+						{
+							"key": "Expect-Ct",
+							"value": "max-age=2592000, report-uri=\"https://sentry.repl.it/api/10/security/?sentry_key=615192fd532445bfbbbe966cd7131791\""
+						},
+						{
+							"key": "Replit-Cluster",
+							"value": "global"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=5648384; includeSubDomains"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"message\": \"user with phone number 1234567891 found\",\n    \"user\": {\n        \"_id\": \"651478b17c31a89c85536a0f\",\n        \"email\": \"user2@example.com\",\n        \"profilePicture\": \"<https://example.com/profile1.jpg>\",\n        \"username\": \"exampleuser2\",\n        \"address\": \"123 Main St, City1\",\n        \"phoneNumber\": \"1234567891\"\n    }\n}"
+				},
+				{
+					"id": "773389df-1054-4997-9662-0c9d4eef5d10",
+					"name": "error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/users/phone/123456890"
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "28"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 22 Sep 2023 08:34:58 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"1c-AvgRziILRQT4TS+D2lz8Y9KAAHo\""
+						},
+						{
+							"key": "Expect-Ct",
+							"value": "max-age=2592000, report-uri=\"https://sentry.repl.it/api/10/security/?sentry_key=615192fd532445bfbbbe966cd7131791\""
+						},
+						{
+							"key": "Replit-Cluster",
+							"value": "global"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=6117872; includeSubDomains"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"message\": \"user not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "adding Rating and Review API",
+			"id": "d4563dac-d813-4eff-b624-8bebfca2b98d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": \"650c883a5cc72285f945f3d5\",\r\n  \"rating\": 3,\r\n\"review\": \"worst movie\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/movie/64f2ea5e08e32ad821cdecd3/rating",
+				"description": "This API allows users to submit ratings and reviews for a specific movie by providing the movie’s ID as a route parameter and the rating and review data in the request body. When a `POST` request is made to this endpoint, the `addRatingAndReview` function is invoked to add the rating and review to the movie data in the database."
+			},
+			"response": [
+				{
+					"id": "722bc6a6-21a1-4fe3-9016-f78314ff2856",
+					"name": "success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": \"650c883a5cc72285f945f3d5\",\r\n  \"rating\": 3,\r\n\"review\": \"worst movie\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/movie/64f2ea5e08e32ad821cdecd3/rating"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "352"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 22 Sep 2023 08:21:30 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"160-fQjQxUaxXQWlaw/rKjmfypOSoGM\""
+						},
+						{
+							"key": "Expect-Ct",
+							"value": "max-age=2592000, report-uri=\"https://sentry.repl.it/api/10/security/?sentry_key=615192fd532445bfbbbe966cd7131791\""
+						},
+						{
+							"key": "Replit-Cluster",
+							"value": "global"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=6118681; includeSubDomains"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"message\": \"review added successfully\",\n    \"review\": [\n        {\n            \"user\": \"650c73e0ae7c9f12681c460b\",\n            \"rating\": 8,\n            \"text\": \"Good Movie\",\n            \"_id\": \"650c7d2e501a187b50256c88\"\n        },\n        {\n            \"user\": \"650c73e0ae7c9f12681c460b\",\n            \"rating\": 3,\n            \"text\": \"cool Movie7\",\n            \"_id\": \"650c7d42501a187b50256c8c\"\n        },\n        {\n            \"user\": \"650c883a5cc72285f945f3d5\",\n            \"rating\": 3,\n            \"text\": \"worst movie\",\n            \"_id\": \"650d4e8a12245192d7dcd46a\"\n        }\n    ]\n}"
+				},
+				{
+					"id": "67710cb2-0a81-406a-b2cb-325554efed06",
+					"name": "error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": \"650c883a5cc72285f945f3d5\",\r\n  \"rating\": 3,\r\n\"review\": \"worst movie\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/movie/64f2ea5e08e32ad821cdece3/rating"
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "29"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 22 Sep 2023 08:21:51 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"1d-BK8kR/PWyZ3zlK41tJBMIJy/7ME\""
+						},
+						{
+							"key": "Expect-Ct",
+							"value": "max-age=2592000, report-uri=\"https://sentry.repl.it/api/10/security/?sentry_key=615192fd532445bfbbbe966cd7131791\""
+						},
+						{
+							"key": "Replit-Cluster",
+							"value": "global"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=6118659; includeSubDomains"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"message\": \"movie not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "reading Movie Reviews with User Details API",
+			"id": "b3b89906-23c1-420f-9957-c12b96cf0fa4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/movie/64f2ea5e08e32ad821cdecd3/rating",
+				"description": "This endpoint allows users to fetch movie reviews along with associated user details for a specific movie by providing the movie’s ID as a route parameter. When a `GET` request is made to this endpoint, the `getMovieReviewsWithUserDetails` function is invoked to retrieve the movie reviews from the database."
+			},
+			"response": [
+				{
+					"id": "2d3a30e1-f9e1-49e9-8459-0d104d9627c4",
+					"name": "success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/movie/64f2ea5e08e32ad821cdecd3/rating"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "641"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 27 Sep 2023 19:03:11 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"281-g/AOo23GU7yZCrnW2RfoFr71Av0\""
+						},
+						{
+							"key": "Expect-Ct",
+							"value": "max-age=2592000, report-uri=\"https://sentry.repl.it/api/10/security/?sentry_key=615192fd532445bfbbbe966cd7131791\""
+						},
+						{
+							"key": "Replit-Cluster",
+							"value": "global"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=5648181; includeSubDomains"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"message\": \"review of Dilwale Dulhania Le Jayenge\",\n    \"review\": [\n        {\n            \"user\": {\n                \"_id\": \"650c73e0ae7c9f12681c460b\",\n                \"email\": \"user@example.com\",\n                \"address\": \"123 Main St, City\",\n                \"phoneNumber\": \"1234567890\"\n            },\n            \"rating\": 8,\n            \"text\": \"Good Movie\",\n            \"_id\": \"650c7d2e501a187b50256c88\"\n        },\n        {\n            \"user\": {\n                \"_id\": \"650c73e0ae7c9f12681c460b\",\n                \"email\": \"user@example.com\",\n                \"address\": \"123 Main St, City\",\n                \"phoneNumber\": \"1234567890\"\n            },\n            \"rating\": 3,\n            \"text\": \"cool Movie7\",\n            \"_id\": \"650c7d42501a187b50256c8c\"\n        },\n        {\n            \"user\": {\n                \"_id\": \"650c883a5cc72285f945f3d5\",\n                \"email\": \"user1@example.com\",\n                \"address\": \"123 Main St, City\",\n                \"phoneNumber\": \"1234567890\"\n            },\n            \"rating\": 3,\n            \"text\": \"worst movie\",\n            \"_id\": \"650d4e8a12245192d7dcd46a\"\n        }\n    ]\n}"
+				},
+				{
+					"id": "4e60bd2b-8fc8-45ce-a63f-2b0c1ece0394",
+					"name": "error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/movie/64f2ea5e08e32ad821cdecd2/rating"
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "29"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 22 Sep 2023 08:19:03 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"1d-BK8kR/PWyZ3zlK41tJBMIJy/7ME\""
+						},
+						{
+							"key": "Expect-Ct",
+							"value": "max-age=2592000, report-uri=\"https://sentry.repl.it/api/10/security/?sentry_key=615192fd532445bfbbbe966cd7131791\""
+						},
+						{
+							"key": "Replit-Cluster",
+							"value": "global"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=6118827; includeSubDomains"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n    \"message\": \"movie not found\"\n}"
+				}
+			]
+		}
+	]
+}
