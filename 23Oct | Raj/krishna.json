@@ -30,7 +30,7 @@
 						}
 					}
 				},
-				"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/users/",
+				"url": "https://assignment15bytehkum.tehkumkanchwala.repl.co/users/test",
 				"description": "This endpoint allows new users to sign up for the platform by providing their user details. When a `POST` request is made to this endpoint, the `signup` function is invoked to save the user’s information to the database. If the user account is created successfully, the API responds with the saved user details."
 			},
 			"response": [
