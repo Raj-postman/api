@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "Renaming Back to sign-in",
+			"name": "user sign-in",
 			"id": "9b961141-1481-448f-87f6-401f35d708df",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -162,6 +162,20 @@
 		},
 		{
 			"name": "user login API",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "55fc2ed3-4bab-4ede-b279-35dcbb2052b2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"id": "d5b6e13c-cd02-4119-b434-7d475753121a",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
