@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "78b34146-a2c8-4660-8232-ae3853e5f2a0",
+		"name": "TestService",
+		"description": "\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "WSDL Tag",
+			"item": [
+				{
+					"name": "RequestMessage",
+					"id": "a2fa6ce8-bb41-4387-afe1-36821600b3f4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <TestRequest xmlns=\"http://tempuri.org/\">\n      <message>string</message>\n    </TestRequest>\n  </soap12:Body>\n</soap12:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": "{{TestPortBaseUrl}}/testservice"
+					},
+					"response": [
+						{
+							"id": "1aed9f98-194a-4c38-b664-a2ce92a2ccb7",
+							"name": "SendMessage response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/xml; charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <TestRequest xmlns=\"http://tempuri.org/\">\n      <message>string</message>\n    </TestRequest>\n  </soap12:Body>\n</soap12:Envelope>\n",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": "http://tempuri.org/testservice"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/xml; charset=utf-8"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <TestResponse xmlns=\"http://tempuri.org/\">\n      <response>string</response>\n    </TestResponse>\n  </soap12:Body>\n</soap12:Envelope>\n"
+						}
+					]
+				}
+			],
+			"id": "cce2c3c9-39b9-426b-b7af-a58a932d3967"
+		},
+		{
+			"name": "SendMessage",
+			"id": "3602998e-05ff-4d8b-99a9-5ac55eee83bb",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <TestRequest xmlns=\"http://tempuri.org/\">\n      <message>string</message>\n    </TestRequest>\n  </soap12:Body>\n</soap12:Envelope>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": "{{TestPortBaseUrl}}/testservice"
+			},
+			"response": [
+				{
+					"id": "8ed5e38f-f2e6-4e0f-8ab3-62cb639f7d96",
+					"name": "SendMessage response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <TestRequest xmlns=\"http://tempuri.org/\">\n      <message>string</message>\n    </TestRequest>\n  </soap12:Body>\n</soap12:Envelope>\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": "http://tempuri.org/testservice"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <TestResponse xmlns=\"http://tempuri.org/\">\n      <response>string</response>\n    </TestResponse>\n  </soap12:Body>\n</soap12:Envelope>\n"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "TestPortBaseUrl",
+			"value": "http://tempuri.org",
+			"type": "any"
+		}
+	]
+}
